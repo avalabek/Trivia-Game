@@ -1,13 +1,16 @@
-#bkgrnd {}
+.body-content {
+   background-size: cover;
+	width:100%;		
+}
 
-.jumbotron {
+body {
 	
 	text-align:center;
 	font-family: 'Raleway', sans-serif;
-
-
 }
-
+footer {
+	text-align:right;
+}
 .panel-transparent {
         background: none;
     }

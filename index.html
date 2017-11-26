@@ -17,7 +17,7 @@
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- link to javascript -->
-    <script type="text/javascript" src="assets/javascript/scripts.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
     <!-- link to jquery -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
@@ -26,27 +26,66 @@
     
 </head>
 
-<body style="background-image:url('assets/images/dubai.jpg')">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<body>
+<div class="container body-content" style="background-image:url('assets/images/asturias.jpg')">
+<br><br><br><br><br><br><br><br><br><br>
 
 <div class="jumbotron panel-transparent">
-  <h1>Hello, world!</h1>
+  <h1>Trivia Game</h1>
   <p>...</p>
-  <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  <p><a class="btn btn-primary btn-lg" href="#" role="button">Click to Play</a></p>
 </div>
-
-<div class="panel panel-transparent">
-  <div class="panel-heading">
-    <h1 class="panel-title">Panel title</h1>
-  </div>
+<!-- If you want the image full screen then uncomment out the following -->
+<!-- <div class="panel panel-transparent"> -->
+  <!-- <div class="panel-heading"> -->
+    <!-- <h1 class="panel-title">Panel title</h1> -->
+  <!-- </div> -->
   <div class="panel-body">
-    Panel content
+    
   </div>
 </div>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="text-center">
+            <h1>Test your geography trivia.</h1>
+            <p>
+            Take the test to see how good your geography knowledge is.</p>
+           
+            <!-- <button class="btn btn-primary btn-lg">Go Here</button> -->
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-center questions">
+            <br><br>
+            <p>
+            The first question and choices should show up here.</p>
+            <div class="question"></div>
+        <ul class="choiceList"></ul>
+        <div class="quizMessage"></div>
+        <div class="result"></div>
+            <button class="btn btn-primary btn-lg next">Next Question</button>
+          </div>
+        </div>    
+  </div>
+    
+  <hr>
+  
+
+</div><!---/cont---->
+  
+  
+
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
-
-
+<footer class="navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <span>@2017 Andreya Valabek</span>
+  </div>
+</footer>
+</div>
 </body>
 </html>
