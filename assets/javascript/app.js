@@ -1,8 +1,8 @@
     // jquery
     $(document).ready(function() {
         //declare functions at top of scripts and declare variables at top of functions
+        
         //variables
-
         //build an empty prototype for questions
         var questions = { question: undefined, choices: undefined, answer: undefined };
         
@@ -12,6 +12,8 @@
             this.choices = possibleChoices;
             this.answer = correctAnswer;
             console.log(triviaQuestion);
+            console.log(possibleChoices);
+            console.log(correctAnswer);
         }
         var oneQuestion = new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], 3);
         var twoQuestion = new Question("What city has a beach called 'Kite Surf Beach'?", ["Dubai", "Sydney", "Dover", "Santa Monica"], 2);
@@ -22,13 +24,16 @@
 
 
         Question.prototype = {
+            // all of these functions will be available to all of the questions these are dummy functions testing
             // win: function(){alert("You win! You got more right than wrong.")}
-            // lose: function(){alert("You lose! You got more wrong than right.")};
-        }
+            // lose: function(){alert("You lose! You got more wrong than right.")}
+                }
 
         var wins = 0;
         var losses = 0;
         var unanswered = 0;
+        var userGuess;
+        var correctAnswer;
 
 
         // FUNCTIONS
@@ -37,52 +42,80 @@
 
 
         startGame = function() {
-            
-            // var random = questions[Math.floor(Math.random() * questions.length)];
+        //User clicks to start game
 
-            $("#quiz").text(random);
+         //if you want randomized questions:            
+         // var random = questions[Math.floor(Math.random() * questions.length)];
+        
+        //question with answer choices appears
+        $("#quiz").append(question);
+            
+        //countdown timer starts 
+        
+        //users choice is saved for correct/incorrect tally and unanswered
+        
+        //next question is displayed, old question hidden
+   
             
         };
-
+        nextQuestion = function(){
+            // correct answer given
+            // new question appears without user input
+            //win/lose/unanswered incremeneted
+        }
 
         resetGame = function() {
+            //Resets wins and losses and unanswered counter and restarts timer
             wins = 0;
             losses = 0;
             unanswered = 0;
 
-            $("#results").text("");
+            
 
             startGame();
         }
 
         // EVENT LISTENERS
-        $(".btn").on("click", function() {
-            // what happens when a crystal is clicked
-            var crystalValue = $(this).attr("crystal-value");
-            //make the string into integer
-            crystalValue = parseInt(crystalValue);
 
-            // update counter by adding crystalValue s
-            counter += crystalValue;
 
+        $("#next").click(function() {
+            nextQuestion();
+        })
+
+
+            
+        
+            // increment counters based on win/lose/unanswered
+            // if (userGuess===correct answer) how do i tell it the answer for each one?{
+            //     win++ 
+            // }
+
+            // else(userGuess !==correctAnswer){
+            //     lose++
+            // }
+            // else (the input ===no imput){
+            //     unanswered++
+            // }
+
+            
             // update counter on HTML
             $("#score").text(counter);
 
-            // check win or loss
-            if (counter === targetNumber) {
-                $("#winOrLose").text("You win!").css("color", "blue");
+            // check win or loss how do i do this? 
+            if (userGuess === correctAnswer) {
+                $("#results").text("You win!").css("color", "blue");
                 ++wins;
                 $("#wins").text(wins);
+//also show picture
 
-
-                $("#winOrLose").on('click', function() {
+                $("#results").on('click', function() {
                     $("#score").text("");
 
                     resetGame();
-                    // location.reload();
+                    
                 })
 
-            } else if (counter > targetNumber) {
+            } else if (userGuess===correctAnswer) {
 
                 $("#winOrLose").text("You lose! Click here to play again.").css("color", "red");
                 ++losses;
@@ -99,50 +132,14 @@
         });
         //Now call the function to start the game
         startGame();
-    });
-    // from hangman
-    var wordBank = ["havana", "beruit", "oslo", "istanbul", "nice", "granada", "copenhagen", "oaxaca", "reykjavik", "zagreb", "zurich", "bratislava", "budapest"];
-
-    var city = wordBank[Math.floor(Math.random() * wordBank.length)];
-
-    //array to hold blanks equal to city  length
-    var answerArray = [];
-    for (var i = 0; i < city.length; i++) {
-        answerArray[i] = "_";
-    }
-
-    var reload;
-    var gameOver;
-
-    var guessCount;
-
-    var correctLetters = 0;
-    // Creating variables to hold the number of wins. They start at 0.right now have losses in but will delete once working
-    // var wins = 0;
-
-    var guessesLeft = 15;
-    //so once you get reload to work use this code with changing consolelog to calling the reload function
-
-    document.onkeyup = function(event) {
-
-        //determines which key was pressed.
-        var userGuess = event.key;
-
-        //isn't working as userGuess changes with each guess
-        var lettersPicked = [userGuess + " "];
-        lettersPicked.push(userGuess)
+    
+    
+    
 
 
 
-
-    }
-    //User clicks to start game
-
-    //question with answer choices appears
-    //countdown timer starts 
-    //users choice is saved for correct/incorrect tally and unanswered
-    //next question is displayed, old question hidden
-    //when correct answer guessed, answer appears and correct! text
+    
+     //when correct answer guessed, answer appears and correct! text
     //when answer is wrong, answer appears and wrong! text
     //if no choice is made before time up, answer appears and time up! text
     // tally is incremented after each turn
