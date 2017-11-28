@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- CSS FIles -->
     <!--the reset.css must be above the style.css as loads in order but don't need it with bootstrap?-->
-    <link href="assets/css/reset.css" rel="stylesheet" type="text/css">
+    <!-- <link href="assets/css/reset.css" rel="stylesheet" type="text/css"> -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css">
     <!--bootstrap and javascript links-->
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
@@ -52,12 +52,13 @@
             <h1>Test your geography trivia.</h1>
             <p>
             Take the test to see how good your geography knowledge is.</p>
+            <div id="results">Results will go here.</div>
            
             <!-- <button class="btn btn-primary btn-lg">Go Here</button> -->
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="text-center questions">
+          <div class="text-center questions" id = "quiz">
             <br><br>
             <p>
             The first question and choices should show up here.</p>
@@ -65,7 +66,7 @@
         <ul class="choiceList"></ul>
         <div class="quizMessage"></div>
         <div class="result"></div>
-            <button class="btn btn-primary btn-lg next">Next Question</button>
+            <button class="btn btn-success btn-lg next" id="submit">Submit Answers</button>
           </div>
         </div>    
   </div>
