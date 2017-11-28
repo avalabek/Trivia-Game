@@ -23,7 +23,14 @@ footer {
     .panel-transparent .panel-body{
         background: rgba(46, 51, 56, 0.2)!important;
     }
-
+#next{
+	background-color:#00897B;
+	color: white;
+}
+#play {
+	background-color:#4a6a9e;
+	color:white;
+}
 
     
 
