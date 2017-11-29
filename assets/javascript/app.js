@@ -36,65 +36,93 @@ console.log(questions[0]["choices"]);
 console.log(questions[0].correctAnswer);
 
 
-$(".question").append(questions[0]["question"]);
-$("#choice1").append(questions[0]["choices"][0]);
-$("#choice2").append(questions[0]["choices"][1]);
-$("#choice3").append(questions[0]["choices"][2]);
-$("#choice4").append(questions[0]["choices"][3]);
-//closing jquery from top
-});
 
-// var wins = 0;
-//         var losses = 0;
-//         var unanswered = 0;
-//         var userGuess;
-//         var correctAnswer;
+        
+        var random;
+        var wins = 0;
+        var losses = 0;
+        var unanswered = 0;
+        var userGuess;
+        var correctAnswer;
 
 
-//         // FUNCTIONS
-//         var startGame;
-//         var resetGame;
+        // FUNCTIONS
+        var startGame;
+        var resetGame;
+        var nextQuestion;
+        
+        
 
+        startGame = function() {
+           // var random = questions[Math.floor(Math.random() * questions.length)];
 
-//         startGame = function() {
-//         //User clicks to start game
-// //question with answer choices appears
-//         $("#quiz").append(question);
+            $(".question").text(questions[0]["question"]);
+            $("#choice1").text(questions[0]["choices"][0]);
+            $("#choice2").text(questions[0]["choices"][1]);
+            $("#choice3").text(questions[0]["choices"][2]);
+            $("#choice4").text(questions[0]["choices"][3]);
+        //randomize questions        
+        
+
+        //question with answer choices appears, should be hidden before or empty
+        // $("#quiz").append(question);
             
-//         //countdown timer starts 
+        //countdown timer starts 
+        setTimeout(nextQuestion, 3000);
         
-//         //users choice is saved for correct/incorrect tally and unanswered
+        //users choice is saved for correct/incorrect tally and unanswered
         
-//         //next question is displayed, old question hidden
+        //next question is displayed, old question hidden
    
             
-//         };
-//         nextQuestion = function(){
-//             // correct answer given
-//             // new question appears without user input
-//             //win/lose/unanswered incremeneted
-//         }
+        };
+        nextQuestion = function(){
+            // correct answer given
+            $(".question").text(questions[1]["question"]);
+            $("#choice1").text(questions[1]["choices"][0]);
+            $("#choice2").text(questions[1]["choices"][1]);
+            $("#choice3").text(questions[1]["choices"][2]);
+            $("#choice4").text(questions[1]["choices"][3]);
+            // new question appears without user input
+            //win/lose/unanswered incremeneted
+        setTimeout(nextQuestion3,3000)
+        };
 
-//         resetGame = function() {
-//             //Resets wins and losses and unanswered counter and restarts timer
-//             wins = 0;
-//             losses = 0;
-//             unanswered = 0;
+        nextQuestion3 = function(){
+            $(".question").text(questions[2]["question"]);
+            $("#choice1").text(questions[2]["choices"][0]);
+            $("#choice2").text(questions[2]["choices"][1]);
+            $("#choice3").text(questions[2]["choices"][2]);
+            $("#choice4").text(questions[2]["choices"][3]);
+
+        }
+
+        resetGame = function() {
+            //Resets wins and losses and unanswered counter and restarts timer
+            wins = 0;
+            losses = 0;
+            unanswered = 0;
 
             
 
-//             startGame();
-//         }
+            startGame();
+        }
 
-//         // EVENT LISTENERS
+        // EVENT LISTENERS
+        $("#play").click(function(){
+            startGame();
+        })
 
+        $("#next").click(function() {
+            nextQuestion();
+        })
 
-//         $("#next").click(function() {
-//             nextQuestion();
-//         })
+        // closing jquery from top
+});
+ 
 
        
-//         //Now call the function to start the game
+        //Now call the function to start the game but when this is active, game breaks right now
 //         startGame();
     
     
