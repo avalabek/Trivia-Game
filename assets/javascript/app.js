@@ -1,4 +1,4 @@
- // jquery
+// jquery
     $(document).ready(function() {
         //declare functions at top of scripts and declare variables at top of functions
         
@@ -86,6 +86,7 @@ console.log(questions[0].correctAnswer);
             // new question appears without user input
             //win/lose/unanswered incremeneted
         setTimeout(nextQuestion3,3000)
+        
         };
 
         nextQuestion3 = function(){
@@ -94,8 +95,36 @@ console.log(questions[0].correctAnswer);
             $("#choice2").text(questions[2]["choices"][1]);
             $("#choice3").text(questions[2]["choices"][2]);
             $("#choice4").text(questions[2]["choices"][3]);
+setTimeout(nextQuestion4,3000)
+        };
+        nextQuestion4 = function(){
+            $(".question").text(questions[3]["question"]);
+            $("#choice1").text(questions[3]["choices"][0]);
+            $("#choice2").text(questions[3]["choices"][1]);
+            $("#choice3").text(questions[3]["choices"][2]);
+            $("#choice4").text(questions[3]["choices"][3]);
+setTimeout(nextQuestion5,3000)
+        };
+nextQuestion5 = function(){
+            $(".question").text(questions[4]["question"]);
+            $("#choice1").text(questions[4]["choices"][0]);
+            $("#choice2").text(questions[4]["choices"][1]);
+            $("#choice3").text(questions[4]["choices"][2]);
+            $("#choice4").text(questions[4]["choices"][3]);
+setTimeout(nextQuestion6,3000)
+        };
+        nextQuestion6 = function(){
+            $(".question").text(questions[5]["question"]);
+            $("#choice1").text(questions[5]["choices"][0]);
+            $("#choice2").text(questions[5]["choices"][1]);
+            $("#choice3").text(questions[5]["choices"][2]);
+            $("#choice4").text(questions[5]["choices"][3]);
+setTimeout(correct,3000)
+        };
 
-        }
+correct = function(){
+    $("#results").append("You lose because you chose nothing. The game didn't let you!")
+      }
 
         resetGame = function() {
             //Resets wins and losses and unanswered counter and restarts timer
@@ -141,3 +170,5 @@ console.log(questions[0].correctAnswer);
     //restarting game clears out users choices and scores and randomizes
     //questions?
     //watch demo and make sure this happens
+
+    
