@@ -8,6 +8,12 @@ body {
 	text-align:center;
 	font-family: 'Raleway', sans-serif;
 }
+
+label {
+	text-align:left;
+
+
+}
 footer {
 	text-align:right;
 }

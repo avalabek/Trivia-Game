@@ -22,116 +22,96 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
     <!-- link to google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Muli|Raleway|Work+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli|Raleway|Work+Sans" rel="stylesheet"> 
+    
 </head>
 
 <body>
-    <div class="container body-content" style="background-image:url('assets/images/asturias.jpg')">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="jumbotron panel-transparent">
-            <h1>Trivia Game</h1>
-            <p>...</p>
-            <p><a class="btn btn-lg" id="play" href="#" role="button">Click to Play</a></p>
+<div class="container body-content" id="background" style="background-image:url('assets/images/asturias.jpg')">
+<br><br><br><br><br><br><br><br><br><br>
+
+<div class="jumbotron panel-transparent">
+  <h1>Trivia Game</h1>
+  <p>...</p>
+  <p><a class="btn btn-lg" id="play" href="#" role="button">Click to Play</a></p>
+</div>
+<!-- If you want the image full screen then uncomment out the following -->
+<!-- <div class="panel panel-transparent"> -->
+  <!-- <div class="panel-heading"> -->
+    <!-- <h1 class="panel-title">Panel title</h1> -->
+  <!-- </div> -->
+  <div class="panel-body">
+    
+  </div>
+</div>
+<div class="container">
+    
+    <div class="row">
+        <div class="col-lg-6">
+          <div class="text-center">
+            <h1>Test your geography trivia.</h1>
+            <p>
+            Take the test to see how good your geography knowledge is.</p>
+            <div id="results">Results will go here.</div>
+           
+            <!-- <button class="btn btn-primary btn-lg">Go Here</button> -->
+          </div>
         </div>
-        <!-- If you want the image full screen then uncomment out the following -->
-        <!-- <div class="panel panel-transparent"> -->
-        <!-- <div class="panel-heading"> -->
-        <!-- <h1 class="panel-title">Panel title</h1> -->
-        <!-- </div> -->
-        <div class="panel-body">
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="text-center">
-                    <h1>Test your geography trivia.</h1>
-                    <p>
-                        Take the test to see how good your geography knowledge is.</p>
-                    <div id="results"></div>
-                    <!-- <button class="btn btn-primary btn-lg">Go Here</button> -->
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="text-left questions">
-                    <br>
-                    <br>
-                    <p class="question">
-                    </p>
-                    <!-- <div class="list-group">
-    <a href="#" class="list-group-item questions" id="choice1"></a>
+
+ 
+
+        <div class="col-lg-6">
+          <div class="text-center questions">
+            <br><br>
+            <p class="question">
+            </p>
+<div class="list-group"> 
+
+ <div class="radio">
+  <label><input type="radio" name="optradio" value="choice1"><p id="choice1"></p></label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="optradio" value="choice2"><p id="choice2"></p></label>
+</div>
+ <div class="radio">
+  <label><input type="radio" name="optradio" value="choice3"><p id="choice3"></p></label>
+</div>
+ <div class="radio">
+  <label><input type="radio" name="optradio" value="choice4"><p id="choice4"></p></label>
+</div>
+</div>
+
+<!--      <a href="#" class="list-group-item questions" id="choice1"></a>
   <a href="#" class="list-group-item" id="choice2"></a>
   <a href="#" class="list-group-item" id="choice3"></a>
   <a href="#" class="list-group-item" id="choice4"></a>
-</div> -->
-                    <div class="quizContainer">
-                        <div class="question"></div>
-                        <ul class="choiceList"></ul>
-                        <div class="quizMessage"></div>
-                        <div class="result"></div>
-                        <button class="btn btn=lg nextButton" id="next">Next Question</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    <!---/cont---->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <footer class="navbar-default navbar-fixed-bottom">
-        <div class="container-fluid">
-            <span>@2017 Andreya Valabek</span>
-        </div>
-    </footer>
-    </div>
-</body>
+ -->
 
+            <div class="question2"></div>
+        <ul class="choiceList"></ul>
+        <div class="quizMessage"></div>
+        <div class="result"></div>
+            <button class="btn  btn-lg next" id="next">Next Question</button>
+          </div>
+        </div>    
+  </div>
+    
+  <hr>
+  
+
+</div>
+  
+  
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+
+<footer class="navbar-default navbar-fixed-bottom">
+  <div class="container-fluid">
+    <span>@2017 Andreya Valabek</span>
+  </div>
+</footer>
+</div>
+</body>
 </html>
