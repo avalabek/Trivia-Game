@@ -41,7 +41,7 @@ var questions = [{
         // FUNCTIONS
         var startGame;
         var resetGame;
-        var nextQuestion;
+        //var nextQuestion;
 
         startGame = function() {
            
@@ -55,17 +55,17 @@ var questions = [{
         setTimeout(answer, 5000);
             
    //TODO users choice is saved for correct/incorrect tally and unanswered
-                    
+                   
         };
         answer = function(){
             $("#results").text("The Alps is the correct answer.");
-           $("#results").append("<img src='assets/images/alps.jpg' style=width:50px,height:50px>");
+           $("#results").append("<img src='assets/images/alps.jpg' style=>");
            setTimeout(nextQuestion, 5000);
          };
 
         nextQuestion = function(){
             // correct answer given
-            $("#results").hide()
+            $("#results").hide();
             $(".question").text(questions[1]["question"]);
             $("#choice1").text(questions[1]["choices"][0]);
             $("#choice2").text(questions[1]["choices"][1]);
@@ -73,50 +73,89 @@ var questions = [{
             $("#choice4").text(questions[1]["choices"][3]);
             // new question appears without user input
             //win/lose/unanswered incremeneted
-        setTimeout(nextAnswer,3000)
+        setTimeout(nextAnswer,5000)
+        
          };
          nextAnswer = function(){
+            $("#results").show();
             $("#results").text("Dubai is the correct answer.");
-           $("#results").append("<img src='assets/images/jumeirahbeach_tn.jpg'>");
-           setTimeout(nextQuestion3, 3000);
+           $("#results").append("<img src='assets/images/albada3.jpg'>");
+           setTimeout(nextQuestion3, 5000);
          };
 
         nextQuestion3 = function(){
+            $("#results").hide();
             $(".question").text(questions[2]["question"]);
             $("#choice1").text(questions[2]["choices"][0]);
             $("#choice2").text(questions[2]["choices"][1]);
             $("#choice3").text(questions[2]["choices"][2]);
             $("#choice4").text(questions[2]["choices"][3]);
-setTimeout(nextQuestion4,3000)
+        setTimeout(nextAnswer3,5000)
         };
+        nextAnswer3 = function(){
+            $("#results").show();
+            $("#results").text("New Jersey is the correct answer.");
+           $("#results").append("<img src='assets/images/chesapeake.jpg'>");
+           setTimeout(nextQuestion4, 5000);
+         };
         nextQuestion4 = function(){
+            $("#results").hide();
             $(".question").text(questions[3]["question"]);
             $("#choice1").text(questions[3]["choices"][0]);
             $("#choice2").text(questions[3]["choices"][1]);
             $("#choice3").text(questions[3]["choices"][2]);
             $("#choice4").text(questions[3]["choices"][3]);
-setTimeout(nextQuestion5,3000)
+        setTimeout(nextAnswer4,5000)
         };
-nextQuestion5 = function(){
+        nextAnswer4 = function(){
+            $("#results").show();
+            $("#results").text("Chad, Cameroon, Niger, and Nigeria is the correct answer.");
+           $("#results").append("<img src='assets/images/alquadra.jpg'>");
+           setTimeout(nextQuestion5, 5000);
+         };
+        nextQuestion5 = function(){
+            $("#results").hide();
             $(".question").text(questions[4]["question"]);
             $("#choice1").text(questions[4]["choices"][0]);
             $("#choice2").text(questions[4]["choices"][1]);
             $("#choice3").text(questions[4]["choices"][2]);
             $("#choice4").text(questions[4]["choices"][3]);
-setTimeout(nextQuestion6,3000)
+        setTimeout(nextAnswer5, 5000)
         };
+        nextAnswer5 = function(){
+            $("#results").show();
+            $("#results").text("The Sahara is the correct answer.");
+           $("#results").append("<img src='assets/images/bigred.JPG'>");
+           setTimeout(nextQuestion6, 5000);
+         };
+
         nextQuestion6 = function(){
+            $("#results").hide();
             $(".question").text(questions[5]["question"]);
             $("#choice1").text(questions[5]["choices"][0]);
             $("#choice2").text(questions[5]["choices"][1]);
             $("#choice3").text(questions[5]["choices"][2]);
             $("#choice4").text(questions[5]["choices"][3]);
-setTimeout(correct,3000)
+        setTimeout(nextAnswer6,5000)
         };
+        nextAnswer6 = function(){
+            $("#results").show();
+            $("#results").text("Toulouse is the correct answer.");
+           $("#results").append("<img src='assets/images/toulouse2.jpg'>");
+           setTimeout(gameOver, 5000);
+         };
 
-correct = function(){
-    $("#results").append("You lose because you chose nothing. The game didn't let you!")
-      }
+        gameOver = function(){
+        $("#results").hide();
+        $("#results").show();
+        $("#results").text("Game over! Click to play again.");
+        $(".question").hide(); 
+        $("#choice1").hide();
+        $("#choice2").hide();
+        $("#choice3").hide();
+        $("#choice4").hide();
+    
+        }
 
         resetGame = function() {
             //Resets wins and losses and unanswered counter and restarts timer
