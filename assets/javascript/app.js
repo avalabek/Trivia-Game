@@ -57,7 +57,7 @@ $(document).ready(function() {
 
 
             //next question is displayed, old question hidden
-            showQuestion()
+            showQuestion();
 
         },
 
@@ -77,7 +77,7 @@ $(document).ready(function() {
 
         showAnswer: function() {
             console.log(game);
-            $("#results").text("The correct answer is " + game.questions[game.currentQuestion].answer + ".")
+            $("#results").text("The correct answer is " + game.questions[game.currentQuestion].answer + ".");
 
             // increment currentQuestion
             currentQuestion++;
@@ -86,13 +86,13 @@ $(document).ready(function() {
             answerTimer = setTimeout(showQuestion, 3000);
             //users choice is saved for correct/incorrect tally and unanswered
             if (data-choice === this.questions[this.currentQuestion].answer) {
-                correct++
+                correct++;
             } else {
-                wrong++
+                wrong++;
             }
-            $("#tally").text("You got " + correct + "questions correct and " + wrong + "questions wrong.")
+            $("#tally").text("You got " + correct + "questions correct and " + wrong + "questions wrong.");
         }
-    }
+    };
 
 
 
