@@ -65,10 +65,10 @@ $(document).ready(function() {
 
             //question with answer choices appears
             $(".question").text(this.questions.question);
-            $("#answer1").text(this.questions.possibleChoices[0]);
-            $("#answer2").text(this.questions.possibleChoices[1]);
-            $("#answer3").text(this.questions.possibleChoices[2]);
-            $("#answer4").text(this.questions.possibleChoices[3]);
+            $("#answer1").text(this.questions.choices[0]);
+            $("#answer2").text(this.questions.choices[1]);
+            $("#answer3").text(this.questions.choices[2]);
+            $("#answer4").text(this.questions.choices[3]);
 
 
             //starts timer for user to answer one question
@@ -85,7 +85,7 @@ $(document).ready(function() {
             // show next question
             answerTimer = setTimeout(showQuestion, 3000);
             //users choice is saved for correct/incorrect tally and unanswered
-            if (userGuess === this.questions.answer) {
+            if (userGuess === this.questions[this.currentQuestion].answer) {
                 correct++
             } else {
                 wrong++
