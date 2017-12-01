@@ -3,11 +3,10 @@ $(document).ready(function() {
     //declare functions at top of scripts and declare variables at top of functions
 
     //variables
-    
-    
+    var game = new Game();
+    // console.log(Game);
     var userGuess;
     var gameOver = false;
-
     //build an empty prototype for questions
     var questions = { question: undefined, choices: undefined, answer: undefined };
 
@@ -45,23 +44,18 @@ $(document).ready(function() {
             this.wrong = 0;
             this.currentQuestion = 0; // first question in array
 
-
-            // var oneQuestion = new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], 3);
-            // var twoQuestion = new Question("What city has a beach called 'Kite Surf Beach'?", ["Dubai", "Sydney", "Dover", "Santa Monica"], "Dubai");
-            // var threeQuestion = new Question("The Chesapeake Bay does not run through which of these states?", ["Delaware", "Maryland", "Virginia", "New Jersey"], 3);
-            // var fourQuestion = new Question("Which four countries surround Lake Chad?", ["Chad, Cameroon, Niger, and Nigeria", "Chad, Mali, Sudan, and Gabon", "Chad, Zimbabwe, Somali, and Sierra Leone", "Chad, Togo, Congo, and Ghana"], 1);
-            // var fiveQuestion = new Question("What is the largest desert in the world?", ["Gobi", "Arabian", "Sahara", "Sonoran"], 2);
-            // var sixQuestion = new Question("Which city in France is the home of Airbus?", ["Albi", "Perpignon", "Toulouse", "Carcassone"], 2);
-            // // //     // add questions to array
-             this.questions.push(new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], 3));
-             this.questions.push(new Question("What city has a beach called 'Kite Surf Beach'?", ["Dubai", "Sydney", "Dover", "Santa Monica"], 2));
-             this.questions.push(new Question("The Chesapeake Bay does not run through which of these states?", ["Delaware", "Maryland", "Virginia", "New Jersey"], 3));
-             this.questions.push(new Question("Which four countries surround Lake Chad?", ["Chad, Cameroon, Niger, and Nigeria", "Chad, Mali, Sudan, and Gabon", "Chad, Zimbabwe, Somali, and Sierra Leone", "Chad, Togo, Congo, and Ghana"], 0));
-             this.questions.push(new Question("What is the largest desert in the world?", ["Gobi", "Arabian", "Sahara", "Sonoran"], 0));
-             this.questions.push(new Question("Which city in France is the home of Airbus?", ["Albi", "Perpignon", "Toulouse", "Carcassone"], 2));
+            // add questions to array
+            this.questions[this.currentQuestion].question.push(new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], 3));
+            this.questions[this.currentQuestion].question.push(new Question("What city has a beach called 'Kite Surf Beach'?", ["Dubai", "Sydney", "Dover", "Santa Monica"], 2));
+            this.questions[this.currentQuestion].question.push(new Question("The Chesapeake Bay does not run through which of these states?", ["Delaware", "Maryland", "Virginia", "New Jersey"], 3));
+            this.questions[this.currentQuestion].question.push(new Question("Which four countries surround Lake Chad?", ["Chad, Cameroon, Niger, and Nigeria", "Chad, Mali, Sudan, and Gabon", "Chad, Zimbabwe, Somali, and Sierra Leone", "Chad, Togo, Congo, and Ghana"], 0));
+            this.questions[this.currentQuestion].question.push(new Question("What is the largest desert in the world?", ["Gobi", "Arabian", "Sahara", "Sonoran"], 0));
+            this.questions[this.currentQuestion].question.push(new Question("Which city in France is the home of Airbus?", ["Albi", "Perpignon", "Toulouse", "Carcassone"], 2));
 
             // display first question
             this.showQuestion();
+
+
 
             //next question is displayed, old question hidden
             showQuestion();
@@ -71,12 +65,12 @@ $(document).ready(function() {
         showQuestion: function() {
 
             //question with answer choices appears
-            // $(".question").text(this.questions[this.currentQuestion].question);
-            // $("#answer1").text(this.questions[this.currentQuestion].choices[0]);
-            // $("#answer2").text(this.questions[this.currentQuestion].choices[1]);
-            // $("#answer3").text(this.questions[this.currentQuestion].choices[2]);
-            // $("#answer4").text(this.questions[this.currentQuestion].choices[3]);
-            $(".question").text(Question[this.question]);
+            $(".question").text(this.questions[this.currentQuestion].question);
+            $("#answer1").text(this.questions[this.currentQuestion].choices[0]);
+            $("#answer2").text(this.questions[this.currentQuestion].choices[1]);
+            $("#answer3").text(this.questions[this.currentQuestion].choices[2]);
+            $("#answer4").text(this.questions[this.currentQuestion].choices[3]);
+
 
             //starts timer for user to answer one question
             questionTimer = setTimeout(showAnswer, 3000);
@@ -92,14 +86,14 @@ $(document).ready(function() {
             // show next question
             answerTimer = setTimeout(showQuestion, 3000);
             //users choice is saved for correct/incorrect tally and unanswered
-            if (data - choice === this.questions[this.currentQuestion].answer) {
+            if (data-choice === this.questions[this.currentQuestion].answer) {
                 correct++;
             } else {
                 wrong++;
             }
             $("#tally").text("You got " + correct + "questions correct and " + wrong + "questions wrong.");
         }
-    };
+    }
 
 
 
@@ -107,17 +101,15 @@ $(document).ready(function() {
     // }
 
     // EVENT LISTENERS
-var game = new Game();
+
     //User clicks to start game
     $("#play").click(function() {
-        console.log(game);
         //Now call the function to start the game
-        Game[startGame()];
+        game.startGame();
     });
 
     // user clicks one of the answers
     $(".answer").click(function() {
-        console.log(game);
         game.showAnswer();
 
     });
@@ -130,5 +122,24 @@ var game = new Game();
     // $("#answer4").text("and how about this?");
 
 
-
+    
 });
+
+
+
+
+
+
+
+
+
+//when correct answer guessed, answer appears and correct! text
+//when answer is wrong, answer appears and wrong! text
+//if no choice is made before time up, answer appears and time up! text
+// tally is incremented after each turn
+//when time is up, and answer appears, next question comes up automatically (timer?) no user input
+//after all questions score is displayed with correct/incorrect/unanswered
+//play again button appears when clicked, game restarts
+//restarting game clears out users choices and scores and randomizes
+//questions?
+//watch demo and make sure this happens
