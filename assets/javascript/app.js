@@ -3,6 +3,7 @@ $(document).ready(function() {
     //declare functions at top of scripts and declare variables at top of functions
 
     //variables
+    var game = new Game();
     var userGuess;
     var gameOver = false;
     //build an empty prototype for questions
@@ -15,15 +16,15 @@ $(document).ready(function() {
         this.answer = correctAnswer;
         console.log(triviaQuestion);
         console.log(possibleChoices);
-        console.log(correctAnswer);//these don't work
-    
+        console.log(correctAnswer); //these don't work
+
     }
 
     Question.prototype = {
         // all of these functions will be available to all of the questions these are dummy functions testing 
         // win: function(){alert("You win! You got more right than wrong.");}
         //lose: function(){alert("You lose! You got more wrong than right.");}
-    
+
     };
 
     function Game() {
@@ -53,30 +54,30 @@ $(document).ready(function() {
             // display first question
             this.showQuestion();
 
-          
-            
+
+
             //next question is displayed, old question hidden
             showQuestion()
 
         },
-console.log(game);
+
         showQuestion: function() {
-            
-        //question with answer choices appears
+
+            //question with answer choices appears
             $(".question").text(this.questions.question);
             $("#answer1").text(this.questions.possibleChoices[0]);
             $("#answer2").text(this.questions.possibleChoices[1]);
             $("#answer3").text(this.questions.possibleChoices[2]);
             $("#answer4").text(this.questions.possibleChoices[3]);
 
-                   
+
             //starts timer for user to answer one question
             questionTimer = setTimeout(showAnswer, 3000);
         },
 
         showAnswer: function() {
-            // display answer
-            $("#results").text("The correct answer is " + game.questions[game.currentQuestion].correctAnswer + ".")
+            console.log(game);
+            $("#results").text("The correct answer is " + game.questions[game.currentQuestion].answer + ".")
 
             // increment currentQuestion
             currentQuestion++;
@@ -84,9 +85,9 @@ console.log(game);
             // show next question
             answerTimer = setTimeout(showQuestion, 3000);
             //users choice is saved for correct/incorrect tally and unanswered
-            if (userGuess===this.questions.correctAnswer){
+            if (userGuess === this.questions.answer) {
                 correct++
-             }else {
+            } else {
                 wrong++
             }
             $("#tally").text("You got " + correct + "questions correct and " + wrong + "questions wrong.")
@@ -94,7 +95,7 @@ console.log(game);
     }
 
 
-    
+
     //     startGame();
     // }
 
@@ -103,24 +104,24 @@ console.log(game);
     //User clicks to start game
     $("#play").click(function() {
         //Now call the function to start the game
-        Game.prototype.startGame();
+        game.startGame();
     });
 
     // user clicks one of the answers
     $(".answer").click(function() {
-        Game.prototype.showAnswer();
+        game.showAnswer();
 
     });
 
-// TESTING TO SEE IF TEXT GOES IN BUTTONS CORRECTLY:WORKS
-// $(".question").text("questions here");
-// $("#answer1").text("and how about this?");
-// $("#answer2").text("and how about this?");
-// $("#answer3").text("and how about this?");
-// $("#answer4").text("and how about this?");
+    // TESTING TO SEE IF TEXT GOES IN BUTTONS CORRECTLY:WORKS
+    // $(".question").text("questions here");
+    // $("#answer1").text("and how about this?");
+    // $("#answer2").text("and how about this?");
+    // $("#answer3").text("and how about this?");
+    // $("#answer4").text("and how about this?");
 
 
-  var game = new Game();  
+    
 });
 
 
