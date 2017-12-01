@@ -85,7 +85,7 @@ $(document).ready(function() {
             // show next question
             answerTimer = setTimeout(showQuestion, 3000);
             //users choice is saved for correct/incorrect tally and unanswered
-            if (userGuess === this.questions[this.currentQuestion].answer) {
+            if (data-choice === this.questions[this.currentQuestion].answer) {
                 correct++
             } else {
                 wrong++
