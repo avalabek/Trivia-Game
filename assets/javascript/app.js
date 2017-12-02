@@ -3,10 +3,12 @@ $(document).ready(function() {
     //declare functions at top of scripts and declare variables at top of functions
 
     //variables
-    
-    
+        
     var userGuess;
     var gameOver = false;
+    var currentQuestion = [];
+    var wrong = 0;
+    var correct = 0;
 
     //build an empty prototype for questions
     var questions = { question: undefined, choices: undefined, answer: undefined };
@@ -56,43 +58,47 @@ $(document).ready(function() {
              this.questions.push(new Question("Which city in France is the home of Airbus?", ["Albi", "Perpignon", "Toulouse", "Carcassone"], 2));
 
             // display first question
-            this.showQuestion();
-
-            //next question is displayed, old question hidden
-            showQuestion();
-
+            
+            setInterval(this.showQuestion(), 3000);
+         
         },
+
 
         showQuestion: function() {
 
             // question with answer choices appears
+
             $(".question").text(this.questions[this.currentQuestion].question);
             $("#answer1").text(this.questions[this.currentQuestion].choices[0]);
-             $("#answer2").text(this.questions[this.currentQuestion].choices[1]);
-             $("#answer3").text(this.questions[this.currentQuestion].choices[2]);
-             $("#answer4").text(this.questions[this.currentQuestion].choices[3]);
+            $("#answer2").text(this.questions[this.currentQuestion].choices[1]);
+            $("#answer3").text(this.questions[this.currentQuestion].choices[2]);
+            $("#answer4").text(this.questions[this.currentQuestion].choices[3]);
             
             //starts timer for user to answer one question
-            questionTimer = setTimeout(this.showAnswer, 3000);
+            questionTimer = setTimeout(this.showAnswer, 2000);
+            
         },
 
         showAnswer: function() {
             // console.log(game);
             $("#results").text("The correct answer is " + game.questions[game.currentQuestion].answer + ".");
+            $("#results").append("<img src='assets/images/alps.jpg'>");
 
             // increment currentQuestion
             currentQuestion++;
 
             // show next question
-            answerTimer = setTimeout(showQuestion, 3000);
+            answerTimer = setTimeout(this.showQuestion, 2000);
             //users choice is saved for correct/incorrect tally and unanswered
-            if (data - choice === this.questions[this.currentQuestion].answer) {
+            if (("data-choice") == this.questions[this.currentQuestion].answer) {
                 correct++;
             } else {
                 wrong++;
             }
-            $("#tally").text("You got " + correct + "questions correct and " + wrong + "questions wrong.");
+            $("#tally").text("You got " + correct + " questions correct and " + wrong + " questions wrong.");
+            this.showQuestion();
         }
+
     };
 
 
@@ -111,18 +117,12 @@ var game = new Game();
 
     // user clicks one of the answers
     $(".answer").click(function() {
-        console.log(game);
-        this.showAnswer();
+        alert("you picked an answer");
+        game.showAnswer();
 
     });
 
-    // TESTING TO SEE IF TEXT GOES IN BUTTONS CORRECTLY:WORKS
-    // $(".question").text("questions here");
-    // $("#answer1").text("and how about this?");
-    // $("#answer2").text("and how about this?");
-    // $("#answer3").text("and how about this?");
-    // $("#answer4").text("and how about this?");
-
+    
 
 
 });
