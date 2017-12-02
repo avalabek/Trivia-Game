@@ -50,7 +50,7 @@ $(document).ready(function() {
 
             
             // // //     // add questions to array
-             this.questions.push(new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], 3));
+             this.questions.push(new Question("Which of these is not a mountain range in Spain?", ["Sierra Nevada", "Picos de Europa", "Pyrenees", "Alps"], "Alps"));
              this.questions.push(new Question("What city has a beach called 'Kite Surf Beach'?", ["Dubai", "Sydney", "Dover", "Santa Monica"], 2));
              this.questions.push(new Question("The Chesapeake Bay does not run through which of these states?", ["Delaware", "Maryland", "Virginia", "New Jersey"], 3));
              this.questions.push(new Question("Which four countries surround Lake Chad?", ["Chad, Cameroon, Niger, and Nigeria", "Chad, Mali, Sudan, and Gabon", "Chad, Zimbabwe, Somali, and Sierra Leone", "Chad, Togo, Congo, and Ghana"], 0));
@@ -59,7 +59,7 @@ $(document).ready(function() {
 
             // display first question
             
-            setTimeout(this.showQuestion(), 3000);
+            setInterval(this.showQuestion(), 3000);
          
         },
 
@@ -75,7 +75,7 @@ $(document).ready(function() {
             $("#answer4").text(this.questions[this.currentQuestion].choices[3]);
             
             //starts timer for user to answer one question
-            questionTimer = setTimeout(this.showAnswer, 2000);
+            questionTimer = setInterval(this.showAnswer, 2000);
             
         },
 
@@ -117,7 +117,7 @@ var game = new Game();
 
     // user clicks one of the answers
     $(".answer").click(function() {
-        alert("you picked the wrong answer.");
+        alert("You picked the wrong answer.");
         game.showAnswer();
 
     });
