@@ -59,7 +59,7 @@ $(document).ready(function() {
 
             // display first question
             
-            setInterval(this.showQuestion(), 3000);
+            setTimeout(this.showQuestion(), 3000);
          
         },
 
@@ -117,7 +117,7 @@ var game = new Game();
 
     // user clicks one of the answers
     $(".answer").click(function() {
-        alert("you picked an answer");
+        alert("you picked the wrong answer.");
         game.showAnswer();
 
     });
